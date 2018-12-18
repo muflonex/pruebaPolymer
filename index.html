@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+    <title>martes</title>
+    <meta name="description" content="martes description">
+
+    <!-- See https://goo.gl/OOhYW5 -->
+    <link rel="manifest" href="/manifest.json">
+
+    <script src="/bower_components/webcomponentsjs/webcomponents-loader.js"></script>
+
+    <link rel="import" href="/src/martes-app/martes-app.html">
+  </head>
+  <body>
+
+    <martes-app id="main"></martes-app>
+    <!--podemos declarar valores inline-->
+    <contacto-card nombre="Miguel" email="miguel@webdevelopment.com"></contact-card>
+
+    <script>
+      // podemos crear elementos con JS
+      let elem = document.createElement(`contacto-card`);
+      // y pasarlos con la API de JS del DOM
+      document.body.appendChild(elem);
+      // podemos asignar el valor de la propiedad con la API de WebComponents
+      elem.setAttribute("nombre", "Davìd");
+      // podemos asignar el valor al propiedad directamente a travès del API de JS para el DOM
+      document.getElementById("main").prop1 = "blablabla";
+      // tambièn podemos llamar asì a metodos
+      document.getElementById("main").doClick();
+    </script>
+
+  </body>
+</html>

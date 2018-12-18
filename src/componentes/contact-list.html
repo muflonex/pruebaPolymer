@@ -1,0 +1,72 @@
+<link rel="import" href="../../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../componentes/contact-card.html">
+<link rel="import" href="../../bower_components/iron-ajax/iron-ajax.html">
+
+<dom-module id="contacto-list">
+    <template>
+        <style>
+            :host {
+                display: block
+            }
+        </style>
+
+        <iron-ajax 
+            auto
+            url="https://jsonplaceholder.typicode.com/users"
+            last-response="{{users}}">
+        </iron-ajax>
+        <template is="dom-repeat" items="[[users]]">
+            <contacto-card
+                nombre="[[item.name]]"
+                email="[[item.email]]">
+            </contacto-card>
+        </template>
+    </template>
+
+    <script>
+        /**
+         * `contactoList` Description
+         *
+         * @summary ShortDescription.
+         * @customElement
+         * @polymer
+         * @extends {Polymer.Element}
+         */
+        class ContactoList extends Polymer.Element {
+            /**
+             * String providing the tag name to register the element under.
+             */
+            static get is() {
+                return 'contacto-list';
+            }
+
+            /**
+             * Object describing property-related metadata used by Polymer features
+             */
+            static get properties() {
+                return {
+                    users: Array
+                };
+            }
+
+            /**
+             * Instance of the element is created/upgraded. Use: initializing state,
+             * set up event listeners, create shadow dom.
+             * @constructor
+             */
+            constructor() {
+                super();
+            }
+
+            /**
+             * Use for one-time configuration of your component after local DOM is initialized. 
+             */
+            ready() {
+                super.ready();
+            }
+
+        }
+
+        window.customElements.define(ContactoList.is, ContactoList);
+    </script>
+</dom-module>

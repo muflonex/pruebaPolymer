@@ -1,0 +1,66 @@
+<link rel="import" href="../../bower_components/polymer/polymer-element.html">
+
+<dom-module id="contacto-card">
+    <template>
+        <style>
+            :host {
+                display: inline-block;
+                margin-top: 1em;
+                padding: 1em 2em;
+                background-color: #aaa;
+                border-radius: 15px;
+                clear: both;
+                float: left;
+                font-family:Georgia, 'Times New Roman', Times, serif
+            }
+        </style>
+    <div>
+        <p>Nombre: [[nombre]]</p>
+        <p>email: [[email]]</p>
+    </div>
+    </template>
+
+    <script>
+        /**
+         * `contact-card` Description
+         *
+         * @summary ShortDescription.
+         * @customElement
+         * @polymer
+         * @extends {Polymer.Element}
+         */
+        class ContactoCard extends Polymer.Element {
+            /**
+             * String providing the tag name to register the element under.
+             */
+            static get is() {
+                return 'contacto-card';
+            }
+
+            /**
+             * Object describing property-related metadata used by Polymer features
+             */
+            static get properties() {
+                return {
+                    nombre: String,
+                    email: {
+                        type: String,
+                        value: "...@..."
+                    }
+                };
+            }
+
+            /**
+             * Instance of the element is created/upgraded. Use: initializing state,
+             * set up event listeners, create shadow dom.
+             * @constructor
+             */
+            constructor() {
+                super();
+            }
+
+        }
+
+        window.customElements.define(ContactoCard.is, ContactoCard);
+    </script>
+</dom-module>
